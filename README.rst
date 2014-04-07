@@ -1,7 +1,7 @@
 Elasticsearch munin plugins
 ==========================================================
 
-http://localhost:9200/_cluster/stats?human&pretty
+http://127.0.0.1:9200/_cluster/stats?human&pretty
 で取得できるjsonからmunin用にスクリプトを作りました.
 
 
