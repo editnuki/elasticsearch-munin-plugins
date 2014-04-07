@@ -25,6 +25,12 @@ CentOS6.4で検証済みです.
 Changelog
 ---------
 
+0.0.2
+`````
+
+ * add plugins
+   * jvm heap_used and file_descriptors
+
 0.0.1
 `````
 
