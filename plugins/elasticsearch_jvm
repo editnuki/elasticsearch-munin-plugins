@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+## GENERATED FILE - DO NOT EDIT
+
+import urllib2
+import sys
+import os
+
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
+
+def getNodes():
+    host = os.environ.get("host", "127.0.0.1")
+    port = 9200
+    url = "http://%s:%d/_cluster/stats?human&pretty" % (host, port)
+    req = urllib2.Request(url)
+    raw = urllib2.urlopen(req).read()
+    return json.loads( raw )["nodes"]
+
+used = "heap_used_in_bytes"
+max = "heap_max_in_bytes"
+
+def doData():
+    print used + ".value " + str( getNodes()["jvm"]["mem"]["heap_used_in_bytes"] / 1000 )
+    print max + ".value " + str( getNodes()["jvm"]["mem"]["heap_max_in_bytes"] / 1000 )
+
+def doConfig():
+
+    print "graph_title elasticsearch heap"
+    print "graph_args --base 1000 -l 0 "
+    print "graph_vlabel MB"
+    print "graph_category elasticsearch"
+
+    print used + ".label " + used
+    print max + ".label " + max
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "config":
+        doConfig()
+    else:
+        doData()
+
