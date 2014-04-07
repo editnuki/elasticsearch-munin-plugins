@@ -14,7 +14,7 @@ http://127.0.0.1:9200/_cluster/stats?human&pretty
 
 設定方法
 -------
-CentOS6.4で検証済みです.
+CentOS6.4でelasticsearch-1.0.1-1.noarchで検証済みです.
 他のOSはサポートしてません.
 
 * git clone git@github.com:editnuki/elasticsearch-munin-plugins.git
@@ -29,7 +29,8 @@ Changelog
 `````
 
  * add plugins
-   * jvm heap_used and file_descriptors
+
+ * jvm heap_used and file_descriptors
 
 0.0.1
 `````
