@@ -24,8 +24,8 @@ used = "heap_used_in_bytes"
 max = "heap_max_in_bytes"
 
 def doData():
-    print used + ".value " + str( getNodes()["jvm"]["mem"]["heap_used_in_bytes"] / 1000 )
-    print max + ".value " + str( getNodes()["jvm"]["mem"]["heap_max_in_bytes"] / 1000 )
+    print used + ".value " + str( getNodes()["jvm"]["mem"]["heap_used_in_bytes"] )
+    print max + ".value " + str( getNodes()["jvm"]["mem"]["heap_max_in_bytes"] )
 
 def doConfig():
 
