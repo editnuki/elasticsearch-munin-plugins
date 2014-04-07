@@ -28,7 +28,6 @@ def doData():
     print min + ".value " + str( getNodes()["process"]["open_file_descriptors"]["min"] )
     print max + ".value " + str( getNodes()["process"]["open_file_descriptors"]["max"] )
     print avg + ".value " + str( getNodes()["process"]["open_file_descriptors"]["avg"] )
-#    print max + ".value " + str( getNodes()["jvm"]["mem"]["heap_max_in_bytes"] / 1000 )
 
 def doConfig():
 
