@@ -31,6 +31,7 @@ CentOS6.4でelasticsearch-1.0.1-1.noarchで検証済みです.
 * ln -s /usr/share/munin/plugins/elasticsearch-* /etc/munin/plugins/
 
 elasticsearch_node_*のプラグインは下記設定が必要になります
+
 * cp elasticsearch-munin-plugins/plugin-conf.d/elasticsearch /etc/munin/plugin-conf.d/elasticsearch
 * ``hoge`` の部分をZjJRZ2HLTh65fyLbkTht9Qの様なノード毎の識別名を指定する必要があります.
 * 識別名はhttp://127.0.0.1:9200/_nodes/で各ノードを取得できます.
