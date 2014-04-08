@@ -1,2 +1,2 @@
 [elasticsearch_node_*]
-env.serial_id *
+env.serial_id hoge
