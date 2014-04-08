@@ -15,7 +15,7 @@ except ImportError:
 def getNodes():
     host = os.environ.get("host", "127.0.0.1")
     port = 9200
-    url = "http://%s:%d/_cluster/stats?human&pretty" % (host, port)
+    url = "http://%s:%d/_cluster/stats" % (host, port)
     req = urllib2.Request(url)
     raw = urllib2.urlopen(req).read()
     return json.loads( raw )["nodes"]
@@ -31,10 +31,10 @@ def doData():
 
 def doConfig():
 
-    print "graph_title elasticsearch open_file_descriptors"
-    print "graph_args --base 1000 -l 0 "
-    print "graph_vlabel open_file_descriptors"
-    print "graph_category elasticsearch"
+    print "graph_title elasticsearch file descriptors"
+    print "graph_args --base 100000 -l 0 "
+    print "graph_vlabel file descriptors"
+    print "graph_category elasticsearch_cluster"
 
     print min + ".label " + min
     print max + ".label " + max
