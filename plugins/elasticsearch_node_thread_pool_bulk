@@ -9,18 +9,16 @@ try:
 except ImportError:
     import simplejson as json
 
-id = "localhsot"
-
 def getNodes():
     host = os.environ.get("host", "127.0.0.1")
     port = 9200
     name = '%s' % os.uname()[1]
-    url = "http://%s:%d/_nodes/%s" % (host, port, name)
-    if os.environ['serial_id']:
-        serial_id = os.environ['serial_id']
+    url = "http://{0}:{1}/_nodes/{2}".format(host, port, name)
     req = urllib2.Request(url)
     raw = urllib2.urlopen(req).read()
-    return json.loads( raw )['nodes'][serial_id]
+    jsonData = json.loads( raw )['nodes']
+    keyList = jsonData.keys()
+    return jsonData[keyList[0]] 
 
 min = "min"
 max = "max"
@@ -45,4 +43,3 @@ if __name__ == "__main__":
         doConfig()
     else:
         doData()
-
