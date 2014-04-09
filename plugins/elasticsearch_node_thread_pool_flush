@@ -16,11 +16,12 @@ def getNodes():
     port = 9200
     name = '%s' % os.uname()[1]
     url = "http://%s:%d/_nodes/%s" % (host, port, name)
+#    serial_id = 'ZjJRZ2HLTh65fyLbkTht9Q'
     if os.environ['serial_id']:
         serial_id = os.environ['serial_id']
     req = urllib2.Request(url)
     raw = urllib2.urlopen(req).read()
-    return json.loads( raw )['nodes'][serial_id]
+    return json.loads( raw )['nodes'][serial_id] 
 
 min = "min"
 max = "max"
@@ -45,4 +46,3 @@ if __name__ == "__main__":
         doConfig()
     else:
         doData()
-
